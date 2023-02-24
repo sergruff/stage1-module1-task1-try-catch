@@ -21,8 +21,15 @@ public class ParseIntegers {
         String justWords = "";
         while (words.hasNext()) {
             String next = words.next();
+            try {
+                Integer.parseInt(next);
+            }
+            catch (NumberFormatException e){
+                justWords+=" " + next;
+                continue;
+            }
             int number = Integer.parseInt(next);
-            // todo: complete it
+            sum+=number;
         }
         System.out.println("Sum is " + sum);
         System.out.println("Just words:" + justWords);
